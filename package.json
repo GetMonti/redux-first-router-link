@@ -3,8 +3,10 @@
   "version": "0.0.0-development",
   "description": "a simple but effective <Link /> component for redux-first-router (better for SEO rather than dispatching yourself)",
   "main": "dist/index.js",
+  "module": "dist/es",
   "scripts": {
     "build": "babel src -d dist",
+    "build:es": "BABEL_ENV=es babel src -d dist/es",
     "build:umd": "BABEL_ENV=commonjs NODE_ENV=development webpack src/Link.js dist/redux-first-router-link.js",
     "build:umd:min": "BABEL_ENV=commonjs NODE_ENV=production webpack src/Link.js dist/redux-first-router-link.min.js",
     "flow-copy": "flow-copy-source src dist",
@@ -39,7 +41,9 @@
     ]
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
     "babel-plugin-flow-react-proptypes": "^4.1.0",
@@ -91,6 +95,7 @@
     ]
   },
   "dependencies": {
+    "@babel/preset-react": "^7.0.0",
     "path-to-regexp": "^1.7.0",
     "prop-types": "^15.5.10",
     "rudy-history": "^1.0.0",
